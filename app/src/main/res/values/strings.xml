@@ -1,3 +1,21 @@
 <resources>
+    <!-- 应用名称 -->
     <string name="app_name">My Application</string>
+
+    <!-- 登录页面 -->
+    <string name="login_username">请输入账号</string>
+    <string name="login_password">请输入密码</string>
+    <string name="login_username_text">账号：</string>
+    <string name="login_password_text">密码：</string>
+    <string name="login_btn">登录</string>
+    <string name="login_username_hint_null">账号不能为空！</string>
+    <string name="login_password_hint_null">密码不能为空！</string>
+    <string name="login_success">登陆成功！</string>
+    <string name="login_fail">登陆失败！</string>
+    
+    <!-- 主界面 -->
+    <string name="main_tab_information">资讯</string>
+    <string name="main_tab_open_class">公开课</string>
+    <string name="main_tab_institute">学院</string>
+    <string name="main_tab_me">我</string>
 </resources>
