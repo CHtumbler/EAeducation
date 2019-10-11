@@ -19,7 +19,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by sunwanle on 2017/3/30.
+ * Created by cuihao on 2017/3/30.
  */
 
 public abstract class ApiDataFactory {

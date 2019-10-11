@@ -8,7 +8,7 @@ import java.io.Serializable;
 import okhttp3.Cookie;
 
 /**
- * Created by sunwanle on 2017/5/10.
+ * Created by cuihao on 2017/5/10.
  */
 
 public class SerializableOkHttpCookies implements Serializable {

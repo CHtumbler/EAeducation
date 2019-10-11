@@ -1,7 +1,7 @@
 package com.eaeducation.ixuexue.net;
 
 /**
- * Created by sunwanle on 2017/3/30.
+ * Created by cuihao on 2019/9/29.
  */
 
 public interface BaseURL {

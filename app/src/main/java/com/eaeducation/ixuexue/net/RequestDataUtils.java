@@ -7,7 +7,7 @@ import com.eaeducation.ixuexue.base.RequestModel;
 import com.eaeducation.ixuexue.utils.DeviceUtils;
 
 /**
- * Created by sunwanle on 2017/4/21.
+ * Created by cuihao on 2017/4/21.
  */
 
 public class RequestDataUtils {

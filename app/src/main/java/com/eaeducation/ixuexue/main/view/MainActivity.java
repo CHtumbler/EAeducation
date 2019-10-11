@@ -59,8 +59,6 @@ public class MainActivity extends BaseActivity {
                         text.setTextColor(getResources().getColor(android.R.color.darker_gray));
                     }
                 }
-
-
             }
 
             @Override
