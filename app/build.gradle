@@ -13,8 +13,33 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            /* 是否开启代码混淆，默认false */
+            minifyEnabled true
+            /* 混淆规则配置文件 */
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'boolean', 'LOGCAT', 'true'
+            buildConfigField 'String', 'URL', '"正式地址"'
+            /* 移除无用的resource文件 */
+            shrinkResources true
+            // 批量打包
+//            applicationVariants.all { variant ->
+//                variant.outputs.each { output ->
+//                    def outputFile = output.outputFile
+//                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+//                        //输出apk名称为：渠道名_版本名_时间.apk
+//                        def fileName = "${project.name}_v${defaultConfig.versionName}_${releaseTime()}.apk"
+//                        output.outputFile = new File(outputFile.parent, fileName)
+//                    }
+//                }
+//            }
+        }
+        debug {
+            /* 是否开启代码混淆，默认false */
+            minifyEnabled false
+            buildConfigField 'boolean', 'LOGCAT', 'true'
+            buildConfigField 'String', 'URL', '"测试地址"'
+            /* 是否应该生成可调试的apk */
+            debuggable true
         }
     }
     compileOptions {
@@ -25,7 +50,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:support-v4:28.0.3'
+    implementation 'com.android.support:support-v4:28.0.3' 
     implementation 'com.android.support:appcompat-v7:28.0.3'
     implementation 'com.android.support:design:28.0.3'
     testImplementation 'junit:junit:4.12'

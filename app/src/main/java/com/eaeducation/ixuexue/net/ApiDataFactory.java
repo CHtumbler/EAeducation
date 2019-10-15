@@ -1,5 +1,6 @@
 package com.eaeducation.ixuexue.net;
 
+import com.eaeducation.ixuexue.BuildConfig;
 import com.eaeducation.ixuexue.base.IPresenter;
 import com.eaeducation.ixuexue.base.ResponseModel;
 import com.eaeducation.ixuexue.utils.NetworkUtils;
@@ -63,8 +64,8 @@ public abstract class ApiDataFactory {
         return client;
     }
 
-    private static API getService(String url) {
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(url)
+    private static API getService() {
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(BuildConfig.URL)
                 .client(client()).addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
@@ -72,8 +73,8 @@ public abstract class ApiDataFactory {
         return service;
     }
 
-    private static API getService(String url, OkHttpClient client) {
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(url)
+    private static API getService(OkHttpClient client) {
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(BuildConfig.URL)
                 .client(client).addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
@@ -87,7 +88,7 @@ public abstract class ApiDataFactory {
     public static void login(final int type, String username, String passowrd, final IPresenter iPresenter) {
         if (NetworkUtils.isNetworkAvailable()) {
             MultipartBody.Builder builder = new MultipartBody.Builder().setType(MultipartBody.FORM).addFormDataPart("username", username).addFormDataPart("password", passowrd);
-            Call<ResponseModel> call = getService(BaseURL.URL).loginBuilder(builder.build());
+            Call<ResponseModel> call = getService().loginBuilder(builder.build());
             subscribe(type, call, iPresenter);
         }
     }
