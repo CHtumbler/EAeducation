@@ -8,8 +8,10 @@ android {
         minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0.0"
+        versionName "1.0."
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        //版本名后面添加一句话，意思就是flavor dimension 它的维度就是该版本号，这样维度就是都是统一的了
+        flavorDimensions "versionCode"
     }
     buildTypes {
         release {
@@ -41,10 +43,32 @@ android {
             /* 是否应该生成可调试的apk */
             debuggable true
         }
+        android.applicationVariants.all { variant ->
+            //判断是release还是debug版本
+            def buildType = variant.buildType.name
+            //获取渠道名称
+            def channel = variant.productFlavors[0].name
+            def fileName//获取当前时间的"YYYY-MM-dd"格式。
+            def createTime = new Date().format("YYYY-MM-dd", TimeZone.getTimeZone("GMT+08:00"))
+            //println variant.getPackageApplicationProvider().outputFile
+            //def output = variant.outputFile()
+            variant.outputs.each {
+                if (buildType == "release") {
+                    variant.getPackageApplicationProvider().get().outputDirectory = new File(project.rootDir.absolutePath + "/apks/${buildType}/${createTime}")
+                    fileName = "${channel}_v${defaultConfig.versionName}_${createTime}_${buildType}.apk"
+                    //it.outputFile = new File(it.outputFile.parent, fileName)
+                    it.outputFileName = fileName
+                }
+            }
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    productFlavors {
+        eaEducation {
+        }
     }
 }
 
