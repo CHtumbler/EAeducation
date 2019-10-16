@@ -18,4 +18,9 @@
     <string name="main_tab_open_class">公开课</string>
     <string name="main_tab_institute">学院</string>
     <string name="main_tab_me">我</string>
+
+    <!-- 资讯界面 -->
+    <string name="information_top_search">请输入搜索内容</string>
+    <string name="information_top_location">定位</string>
+    <string name="information_item_title_hint">2018年，我們過得很充實、走得很堅定。成就是全國各族人民擼起袖子干出來的，是新時代奮斗者揮洒汗水拼出來的。</string>
 </resources>

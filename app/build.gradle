@@ -5,7 +5,7 @@ android {
     buildToolsVersion "28.0.3"
     defaultConfig {
         applicationId "com.eaeducation.ixuexue"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
         versionName "1.0."
@@ -91,4 +91,7 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.0.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
     implementation 'com.zxy.android:tiny:0.0.6'
+    //张弘洋万能适配器
+    implementation 'com.zhy:base-rvadapter:3.0.3'
+    implementation "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-31"
 }

@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 
 import com.eaeducation.ixuexue.R;
 import com.eaeducation.ixuexue.base.BaseActivity;
-import com.eaeducation.ixuexue.information.InformationFragment;
+import com.eaeducation.ixuexue.information.view.InformationFragment;
 import com.eaeducation.ixuexue.institute.InstituteFragment;
 import com.eaeducation.ixuexue.me.MeFragment;
 import com.eaeducation.ixuexue.openclass.OpenClassFragment;
