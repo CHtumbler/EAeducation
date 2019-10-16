@@ -13,7 +13,7 @@ import com.eaeducation.ixuexue.base.BaseActivity;
 import com.eaeducation.ixuexue.information.view.InformationFragment;
 import com.eaeducation.ixuexue.institute.InstituteFragment;
 import com.eaeducation.ixuexue.me.MeFragment;
-import com.eaeducation.ixuexue.openclass.OpenClassFragment;
+import com.eaeducation.ixuexue.openclass.view.OpenClassFragment;
 import com.google.android.material.tabs.TabLayout;
 
 import butterknife.BindView;

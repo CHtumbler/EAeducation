@@ -1,6 +1,7 @@
 <resources>
     <!-- 应用名称 -->
     <string name="app_name">My Application</string>
+    <string name="app_hint">EA国际教育</string>
 
     <!-- 登录页面 -->
     <string name="login_username">请输入账号</string>
@@ -23,4 +24,9 @@
     <string name="information_top_search">请输入搜索内容</string>
     <string name="information_top_location">定位</string>
     <string name="information_item_title_hint">2018年，我們過得很充實、走得很堅定。成就是全國各族人民擼起袖子干出來的，是新時代奮斗者揮洒汗水拼出來的。</string>
+    <string name="information_item_time">2019/10/16</string>
+
+    <!-- 公开课界面 -->
+    <string name="openclass_item_vedio_count_hint">%1$s万次播放</string>
+    <string name="openclass_item_vedio_time_hint">02:30</string>
 </resources>

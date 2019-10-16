@@ -10,7 +10,6 @@
         android:id="@+id/tv_information_item_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawablePadding="5dp"
         android:textColor="@color/black"
         android:textSize="@dimen/dp_14"
         android:text="@string/information_item_title_hint"/>
@@ -69,24 +68,21 @@
 
     </LinearLayout>
 
-    <View style="@style/ViewLineStyle"/>
-
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_10">
+        android:layout_height="wrap_content">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/font_gray"
-            android:text="EA国际教育"/>
+            android:text="@string/app_hint"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:text="2019/10/16"
+            android:text="@string/information_item_time"
             android:textColor="@color/black"/>
 
     </RelativeLayout>
