@@ -1,6 +1,7 @@
 package com.eaeducation.ixuexue.information.view;
 
-import android.widget.EditText;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,7 +23,7 @@ import butterknife.OnClick;
 public class InformationFragment extends BaseFragment implements IInformationAction {
 
     @BindView(R.id.et_information_search)
-    EditText mSearch;
+    TextView mSearch;
     @BindView(R.id.rcy_information_list)
     RecyclerView mRcyList;
     @BindView(R.id.refresh_information_list)
@@ -58,13 +59,20 @@ public class InformationFragment extends BaseFragment implements IInformationAct
         });
     }
 
-    @OnClick(R.id.tv_information_loaciton)
-    public void onViewClicked() {
-
-    }
-
     @Override
     public void setAdapter(InformationListAdapter adapter) {
         mRcyList.setAdapter(adapter);
+    }
+
+    @OnClick({R.id.et_information_search, R.id.tv_information_loaciton})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.et_information_search:
+                break;
+            case R.id.tv_information_loaciton:
+                break;
+            default:
+                break;
+        }
     }
 }

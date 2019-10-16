@@ -119,7 +119,7 @@ public class MainActivity extends BaseActivity {
      * @return
      */
     private View getTabView(Context context, int position) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_main_tablayout, null);
+        View view = LayoutInflater.from(context).inflate(R.layout.layout_main_bottom_tab, null);
         ImageView tabIcon = (ImageView) view.findViewById(R.id.tab_content_image);
         tabIcon.setImageResource(mTabRes[position]);
         TextView tabText = (TextView) view.findViewById(R.id.tab_content_text);

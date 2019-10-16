@@ -18,9 +18,9 @@
         android:gravity="left"
         android:singleLine="true"
         android:drawableLeft="@drawable/ic_toolbar_back"
-        android:drawablePadding="5dp"
+        android:drawablePadding="@dimen/dp_5"
         android:textColor="@color/tool_bar_text_color"
-        android:textSize="14sp" />
+        android:textSize="@dimen/dp_14" />
 
     <TextView
         android:id="@+id/title"
@@ -31,21 +31,21 @@
         android:ellipsize="end"
         android:singleLine="true"
         android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:textSize="@dimen/dp_16" />
 
     <TextView
         android:id="@+id/issue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:layout_marginRight="10dp"
+        android:paddingLeft="@dimen/dp_10"
+        android:paddingRight="@dimen/dp_10"
+        android:paddingTop="@dimen/dp_5"
+        android:paddingBottom="@dimen/dp_5"
+        android:layout_marginRight="@dimen/dp_10"
         android:ellipsize="end"
         android:gravity="right"
         android:singleLine="true"
         android:textColor="@color/tool_bar_text_color"
-        android:textSize="14sp" />
+        android:textSize="@dimen/dp_14" />
 </androidx.appcompat.widget.Toolbar>
