@@ -21,6 +21,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField 'boolean', 'LOGCAT', 'true'
             buildConfigField 'String', 'URL', '"正式地址"'
+            buildConfigField 'String', 'api_key', '"AaOb0iLGzk9O2lRq"'
+            buildConfigField 'String', 'api_iv', '"1t31keXoH8EIvYCX"'
             /* 移除无用的resource文件 */
             shrinkResources true
             // 批量打包
@@ -39,7 +41,9 @@ android {
             /* 是否开启代码混淆，默认false */
             minifyEnabled false
             buildConfigField 'boolean', 'LOGCAT', 'true'
-            buildConfigField 'String', 'URL', '"测试地址"'
+            buildConfigField 'String', 'URL', '"http://192.168.1.183"'
+            buildConfigField 'String', 'api_key', '"AaOb0iLGzk9O2lRq"'
+            buildConfigField 'String', 'api_iv', '"1t31keXoH8EIvYCX"'
             /* 是否应该生成可调试的apk */
             debuggable true
         }
@@ -73,18 +77,17 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:support-v4:28.0.3' 
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:support-v4:28.0.3'
     implementation 'com.android.support:appcompat-v7:28.0.3'
     implementation 'com.android.support:design:28.0.3'
     testImplementation 'junit:junit:4.12'
-
     implementation 'io.reactivex.rxjava2:rxjava:2.0.1'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
     implementation 'com.squareup.retrofit2:retrofit:2.2.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.2.0'
-    implementation "org.reactivestreams:reactive-streams:1.0.2"
+    implementation 'org.reactivestreams:reactive-streams:1.0.2'
     //OkHttp
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
@@ -93,5 +96,7 @@ dependencies {
     implementation 'com.zxy.android:tiny:0.0.6'
     //张弘洋万能适配器
     implementation 'com.zhy:base-rvadapter:3.0.3'
-    implementation "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-31"
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-31'
+    //Gilde
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
 }

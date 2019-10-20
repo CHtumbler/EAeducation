@@ -93,6 +93,16 @@ public abstract class ApiDataFactory {
         }
     }
 
+    /**
+     * 解密测试
+     */
+    public static void test(final int type, final IPresenter iPresenter) {
+        if (NetworkUtils.isNetworkAvailable()) {
+            Call<ResponseModel> call = getService().test();
+            subscribe(type, call, iPresenter);
+        }
+    }
+
     private static void subscribe(final int type, final Call<ResponseModel> responseModelCall, final IPresenter
             iPresenter) {
         responseModelCall.enqueue(new Callback<ResponseModel>() {
@@ -116,7 +126,7 @@ public abstract class ApiDataFactory {
 //                        login(0, UserManager.getUserLoginName(), UserManager.getUserLoginPassword(), null);
                         iPresenter.onFail(type, responseModel.getCode(), "登录超时");
                     } else {
-                        String msg = responseModel.getMessage();
+                        String msg = responseModel.getMsg();
                         try {
                             msg = responseModel.getData().toString();
                         } catch (Exception e) {
@@ -153,7 +163,7 @@ public abstract class ApiDataFactory {
                     if (responseModel.getCode() == 200) {
                         networkAction.onSuccess(type, responseModel.getData());
                     } else {
-                        networkAction.onFail(type, responseModel.getCode(), responseModel.getMessage());
+                        networkAction.onFail(type, responseModel.getCode(), responseModel.getMsg());
                     }
                 } else {
                     networkAction.onFail(type, response.code(), response.message());
