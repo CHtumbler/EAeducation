@@ -3,19 +3,24 @@ package com.eaeducation.ixuexue;
 import android.app.Application;
 import android.content.Context;
 
+import androidx.multidex.MultiDex;
+import com.eaeducation.ixuexue.base.CrashHandler;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.tencent.bugly.crashreport.CrashReport;
 
 import java.text.SimpleDateFormat;
 
 /**
- * Created by sunwanle on 2017/3/30.
+ * Created by cuihao on 2019/10/09.
  */
 
 public class MyApplication extends Application {
 
     private static MyApplication sApplication;
+    //系统默认的异常处理
+    private Thread.UncaughtExceptionHandler mDefaultHandler;
 
     static {
         //设置全局的Header构建器
@@ -35,19 +40,25 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         sApplication = this;
-
-//        SDKInitializer.initialize(this);
-//
-//        PgyCrashManager.register(this);
-//
-//        JPushInterface.setDebugMode(true);
-//        JPushInterface.init(this);
+        /**
+         * bugly初始化
+         * 第三个参数为SDK调试模式开关，调试模式的行为特性如下：
+         * 输出详细的Bugly SDK的Log；
+         * 每一条Crash都会被立即上报；
+         * 自定义日志将会在Logcat中输出。
+         * 建议在测试阶段建议设置成true，发布时设置为false。
+         */
+        CrashReport.initCrashReport(getApplicationContext(), "注册时申请的APPID", false);
+        //异常处理
+        mDefaultHandler = Thread.getDefaultUncaughtExceptionHandler();
+        CrashHandler crashHandler = CrashHandler.getInstance().init(this);
+        Thread.setDefaultUncaughtExceptionHandler(crashHandler);
     }
 
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-//        MultiDex.install(this);
+        MultiDex.install(this);
     }
 
     public static MyApplication getApplication() {
