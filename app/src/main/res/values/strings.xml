@@ -1,6 +1,6 @@
 <resources>
     <!-- 应用名称 -->
-    <string name="app_name">My Application</string>
+    <string name="app_name">Eaeducation</string>
     <string name="app_hint">EA国际教育</string>
 
     <!-- 登录页面 -->
@@ -13,11 +13,12 @@
     <string name="login_password_hint_null">密码不能为空！</string>
     <string name="login_success">登陆成功！</string>
     <string name="login_fail">登陆失败！</string>
-    
+
     <!-- 主界面 -->
     <string name="main_tab_information">资讯</string>
     <string name="main_tab_open_class">公开课</string>
     <string name="main_tab_institute">学院</string>
+    <string name="main_tab_vip">VIP</string>
     <string name="main_tab_me">我</string>
 
     <!-- 资讯界面 -->
@@ -29,4 +30,27 @@
     <!-- 公开课界面 -->
     <string name="openclass_item_vedio_count_hint">%1$s万次播放</string>
     <string name="openclass_item_vedio_time_hint">02:30</string>
+
+    <!-- 今日回顾 -->
+    <string name="dialy_practice_title">今日回顾</string>
+    <string name="dialy_part1_video_highlight">精彩集锦</string>
+    <string name="dialy_part1_video_full">完整视频</string>
+    <string name="dialy_part1_video_teacher">授课老师：</string>
+    <string name="dialy_part1_video_teacher_name">Mavis</string>
+    <string name="dialy_part1_video_hint">完成了线下课程</string>
+    <string name="dialy_part1_video_curriculum">lesson 95-96</string>
+    <string name="dialy_part2_class_performance">课程表现</string>
+    <string name="dialy_part2_class_performance_hand_num_title">举手次数</string>
+    <!--<string name="dialy_part2_class_performance_hand_num">%1$s次</string>-->
+    <string name="dialy_part2_class_performance_hand_num">8次</string>
+    <!--<string name="dialy_part2_class_performance_hand_percent">超过了%1$s的同学</string>-->
+    <string name="dialy_part2_class_performance_hand_percent">超过了56%的同学</string>
+    <string name="dialy_part2_class_performance_focus_time_hint">专注时长</string>
+    <!--<string name="dialy_part2_class_performance_focus_time_percent">专注时长%1$s，超过了%2$s的同学</string>-->
+    <string name="dialy_part2_class_performance_focus_time_percent">专注时长19分56秒，超过了50%的同学</string>
+    <string name="dialy_part2_class_performance_happy_index_hint">开心指数</string>
+    <string name="dialy_part3_words_teach_emphasis">教学重点</string>
+    <string name="dialy_part3_words_hint">New Words </string>
+    <string name="dialy_part3_words_num"> 10</string>
+    <string name="dialy_part4_sentence_hint">Do you know who the young woman is waiting for?</string>
 </resources>

@@ -1,40 +1,42 @@
 package com.eaeducation.ixuexue.base;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
-import com.eaeducation.ixuexue.R;
 import com.eaeducation.ixuexue.utils.status.StatusBarUtil;
 
 import butterknife.ButterKnife;
 
 public abstract  class BaseActivity extends AppCompatActivity implements View.OnClickListener {
 
-    protected Toolbar mToolbar;
-    protected TextView mTitle;
-    protected TextView mBack;
     protected boolean isVisible;
-    protected TextView mIssue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         if (initLayoutId() != -1){
             setContentView(initLayoutId());
         }
         ButterKnife.bind(this);
+        if (savedInstanceState != null) {
+            getIntentData(savedInstanceState);
+        } else if (getIntent() != null && getIntent().getExtras() != null) {
+            getIntentData(getIntent().getExtras());
+        }
         //保留顶部标题栏距离
-        StatusBarUtil.setRootViewFitsSystemWindows(this, true);        //设置状态栏透明
+        StatusBarUtil.setRootViewFitsSystemWindows(this, true);
+        //设置状态栏透明
         StatusBarUtil.setTranslucentStatus(this);
         if (!StatusBarUtil.setStatusBarDarkTheme(this, true)) {
             //如果不支持设置深色风格 为了兼容总不能让状态栏白白的看不清, 于是设置一个状态栏颜色为半透明,
@@ -45,30 +47,13 @@ public abstract  class BaseActivity extends AppCompatActivity implements View.On
         initData();
     }
 
-    /**
-     * 摒弃了以前的ActionBar，改用Toolbar
-     */
-    protected void initToolBar() {
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_toolbar_back);
-        mToolbar.setFitsSystemWindows(true);
-        mTitle = (TextView) findViewById(R.id.title);
-        mBack = (TextView) findViewById(R.id.back);
-        mIssue = (TextView) findViewById(R.id.issue);
-        mToolbar.setTitle(null);
-        mBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-    }
-
     //隐藏顶部标题栏距离
     public void hideStatuseBar() {
         StatusBarUtil.setRootViewFitsSystemWindows(this, false);
+    }
+
+    public void showStatusBar() {
+        StatusBarUtil.setRootViewFitsSystemWindows(this, true);
     }
 
     protected abstract int initLayoutId();
@@ -76,6 +61,19 @@ public abstract  class BaseActivity extends AppCompatActivity implements View.On
     protected abstract void initView();
 
     protected abstract void initData();
+
+    /**
+     * intent数据
+     */
+    protected  void getIntentData(Bundle bundle){ }
+
+    protected void startActivity(Class<?> cls, Bundle bundle) {
+        Intent intent = new Intent(this, cls);
+        if (bundle != null) {
+            intent.putExtras(bundle);
+        }
+        startActivity(intent);
+    }
 
     @Override
     protected void onResume() {

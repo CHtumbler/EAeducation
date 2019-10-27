@@ -39,9 +39,9 @@ public class InformationFragment extends BaseFragment implements IInformationAct
     @Override
     protected void initView() {
         //设置RecyclerView管理器
-        mRcyList.setLayoutManager(new LinearLayoutManager(this.getActivity()));
-        mRcyList.addItemDecoration(new DividerItemDecoration(this.getActivity(), DividerItemDecoration.VERTICAL));
-        mPresenter = new InformationPresenter(this, this.getActivity());
+        mRcyList.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRcyList.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
+        mPresenter = new InformationPresenter(this, getActivity());
     }
 
     @Override

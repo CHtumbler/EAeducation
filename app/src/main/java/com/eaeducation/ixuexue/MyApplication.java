@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import androidx.multidex.MultiDex;
-import com.eaeducation.ixuexue.base.CrashHandler;
+
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
@@ -48,11 +48,11 @@ public class MyApplication extends Application {
          * 自定义日志将会在Logcat中输出。
          * 建议在测试阶段建议设置成true，发布时设置为false。
          */
-        CrashReport.initCrashReport(getApplicationContext(), "注册时申请的APPID", false);
+        CrashReport.initCrashReport(getApplicationContext(), "4b0d1ca90e", false);
         //异常处理
-        mDefaultHandler = Thread.getDefaultUncaughtExceptionHandler();
-        CrashHandler crashHandler = CrashHandler.getInstance().init(this);
-        Thread.setDefaultUncaughtExceptionHandler(crashHandler);
+//        mDefaultHandler = Thread.getDefaultUncaughtExceptionHandler();
+//        CrashHandler crashHandler = CrashHandler.getInstance().init(this);
+//        Thread.setDefaultUncaughtExceptionHandler(crashHandler);
     }
 
     @Override

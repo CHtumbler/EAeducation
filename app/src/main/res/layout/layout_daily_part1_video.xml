@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="@dimen/dp_10"
+    android:layout_margin="@dimen/dp_10"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_daily_part1_video_highlight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp_10"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dp_14"
+            android:text="@string/dialy_part1_video_highlight"/>
+
+        <View style="@style/ViewVerticalLineStyle"
+            android:background="@color/black"/>
+
+        <TextView
+            android:id="@+id/tv_daily_part1_video_full"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dp_14"
+            android:text="@string/dialy_part1_video_full"/>
+
+    </LinearLayout>
+    
+    <cn.jzvd.JZVideoPlayerStandard
+        android:id="@+id/jz_daily_part1_video"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_200"
+        android:layout_marginBottom="@dimen/dp_20"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/dp_16"
+            android:textColor="@color/black"
+            android:text="@string/dialy_part1_video_teacher"/>
+
+        <TextView
+            android:id="@+id/tv_daily_part1_video_teacher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/dp_16"
+            android:textColor="@color/black"
+            android:text="@string/dialy_part1_video_teacher_name"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/dp_14"
+        android:textColor="@color/font_gray"
+        android:text="@string/dialy_part1_video_hint"
+        android:layout_marginBottom="@dimen/dp_20"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/dp_14"
+        android:textColor="@color/black"
+        android:text="@string/dialy_part1_video_curriculum"
+        android:layout_marginBottom="@dimen/dp_10"/>
+
+</LinearLayout>

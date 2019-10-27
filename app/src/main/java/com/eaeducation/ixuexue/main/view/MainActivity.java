@@ -14,6 +14,7 @@ import com.eaeducation.ixuexue.information.view.InformationFragment;
 import com.eaeducation.ixuexue.institute.InstituteFragment;
 import com.eaeducation.ixuexue.me.MeFragment;
 import com.eaeducation.ixuexue.openclass.view.OpenClassFragment;
+import com.eaeducation.ixuexue.vip.view.VipFragment;
 import com.google.android.material.tabs.TabLayout;
 
 import butterknife.BindView;
@@ -23,14 +24,16 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.main_tabLayout)
     TabLayout mTabLayout;
 
+    //底部Tab个数
+    private static final int FRAGMENT_NUM = 5;
     //fragment页面
     private Fragment[] mFragmensts;
     //未选中底部图片
-    public static final int[] mTabRes = new int[]{R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher};
+    public static final int[] mTabRes = new int[]{R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher,R.mipmap.ic_launcher, R.mipmap.ic_launcher};
     //选中底部图片
-    public static final int[] mTabResPressed = new int[]{R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher};
+    public static final int[] mTabResPressed = new int[]{R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher};
     //地图tab文字
-    public static final int[] mTabTitle = new int[]{R.string.main_tab_information, R.string.main_tab_open_class, R.string.main_tab_institute, R.string.main_tab_me};
+    public static final int[] mTabTitle = new int[]{R.string.main_tab_information, R.string.main_tab_open_class, R.string.main_tab_institute, R.string.main_tab_vip, R.string.main_tab_me};
 
     @Override
     protected int initLayoutId() {
@@ -76,17 +79,18 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initData() {
         // 提供自定义的布局添加Tab
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < FRAGMENT_NUM; i++) {
             mTabLayout.addTab(mTabLayout.newTab().setCustomView(getTabView(this, i)));
         }
     }
 
     private Fragment[] getFragments() {
-        Fragment fragments[] = new Fragment[4];
+        Fragment fragments[] = new Fragment[FRAGMENT_NUM];
         fragments[0] = new InformationFragment();
         fragments[1] = new OpenClassFragment();
         fragments[2] = new InstituteFragment();
-        fragments[3] = new MeFragment();
+        fragments[3] = new VipFragment();
+        fragments[4] = new MeFragment();
         return fragments;
     }
 
@@ -104,6 +108,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 3:
                 fragment = mFragmensts[3];
+                break;
+            case 4:
+                fragment = mFragmensts[4];
                 break;
         }
         if (fragment != null) {
