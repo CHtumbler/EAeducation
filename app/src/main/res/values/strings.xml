@@ -1,6 +1,6 @@
 <resources>
     <!-- 应用名称 -->
-    <string name="app_name">Eaeducation</string>
+    <string name="app_name">曼陀</string>
     <string name="app_hint">EA国际教育</string>
 
     <!-- 登录页面 -->

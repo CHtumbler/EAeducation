@@ -37,6 +37,19 @@
 
     <View style="@style/ViewLineStyle" />
 
+    <ViewFlipper
+        android:id="@+id/vf__information_marquee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:autoStart="true"
+        android:background="#fff"
+        android:flipInterval="3000"
+        android:inAnimation="@anim/anim_marquee_in"
+        android:outAnimation="@anim/anim_marquee_out">
+    </ViewFlipper>
+
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:id="@+id/refresh_information_list"
         android:layout_width="match_parent"
